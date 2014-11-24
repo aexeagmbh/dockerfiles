@@ -1,0 +1,7 @@
+FROM nginx
+MAINTAINER Aexea Carpentry
+
+COPY HQ /usr/share/nginx/html/HQ/
+COPY kibana /usr/share/nginx/html/kibana/
+COPY index.html /usr/share/nginx/html/
+COPY default.conf /etc/nginx/conf.d/
