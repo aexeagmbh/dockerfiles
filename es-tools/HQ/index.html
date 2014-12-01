@@ -48,8 +48,7 @@ Latest Builds: https://github.com/royrusso/elasticsearch-HQ
                                 <span class="add-on"><i class="icon-sitemap"></i></span>
                                 <input type="text" placeholder="Enter http://domain:port" name="connectionURL"
                                        style="width: 220px;"
-                                       id="connectionURL"
-                                       value="http://es.qax.io:9200/">
+                                       id="connectionURL">
                                 <button class="btn btn-info" type="button" id="connectButton">Connect</button>
                             </div>
                         </form>
@@ -268,6 +267,7 @@ Latest Builds: https://github.com/royrusso/elasticsearch-HQ
 
 <script>
     $(document).ready(function () {
+        $('#connectionURL').val("http://"+window.location.hostname+":9200");
         $('#connectionURL').focus();
         ajaxloading.hide();
         scrollToTop.activate();
