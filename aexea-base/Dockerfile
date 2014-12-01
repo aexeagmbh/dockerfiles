@@ -24,5 +24,5 @@ ENV LC_ALL en_US.UTF-8
 RUN pip3 install psycopg2 lxml Pillow
 
 RUN useradd uid1000 -d /home/uid1000
-RUN mkdir -p /home/uid1000
+RUN mkdir -p /home/uid1000 && chown uid1000: /home/uid1000
 VOLUME /home/uid1000
