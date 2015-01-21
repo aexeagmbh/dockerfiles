@@ -14,6 +14,6 @@ RUN bin/plugin install contrib
 RUN mkdir -p /conf
 ADD default.conf /conf/default.conf
 
-VOLUME /opt/logstash/conf
+VOLUME /conf
 
 CMD bin/logstash -f /conf
