@@ -9,5 +9,5 @@ RUN chmod +x /start.sh
 ADD sentry.conf.py /etc/sentry.conf.py
 EXPOSE 9000
 
-ENTRYPOINT ["start.sh"]
+ENTRYPOINT ["/start.sh"]
 CMD web
