@@ -2,9 +2,11 @@ FROM aexea/aexea-base
 MAINTAINER Aexea Carpentry
 
 RUN apt-get update && apt-get install -y python-pip python-dev
-RUN pip install sentry sentry[postgres]
+RUN pip install sentry[postgres]
 
-ADD sentry.conf /etc/sentry.conf.py
+ADD start.sh /usr/bin/local/start
+RUN chmod +x /usr/bin/local/start
+ADD sentry.conf.py /etc/sentry.conf.py
 EXPOSE 9000
 
-CMD sentry --config=/etc/sentry.conf.py celery worker -B
+CMD /start.sh web
