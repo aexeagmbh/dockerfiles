@@ -2,7 +2,7 @@ FROM aexea/aexea-base
 MAINTAINER Aexea Carpentry
 
 RUN apt-get update && apt-get install -y python-pip python-dev
-RUN pip install sentry[postgres]
+RUN pip install sentry[postgres] sentry-hipchat
 
 ADD start.sh /start.sh
 RUN chmod +x /start.sh
