@@ -9,4 +9,4 @@ RUN chmod +x /usr/bin/local/start
 ADD sentry.conf.py /etc/sentry.conf.py
 EXPOSE 9000
 
-CMD /start.sh web
+CMD start web
