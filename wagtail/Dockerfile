@@ -21,7 +21,6 @@ RUN mkdir media
 RUN chown -R uid1000: media
 
 EXPOSE 8000
-USER uid1000
 
 ENTRYPOINT ./start.sh
 CMD web
