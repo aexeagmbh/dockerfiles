@@ -19,4 +19,5 @@ RUN chown -R uid1000: /log
 EXPOSE 8000
 USER uid1000
 
-CMD ./start.sh
+ENTRYPOINT ./start.sh
+CMD web
