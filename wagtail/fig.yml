@@ -5,6 +5,7 @@ web:
    - redis
   volumes:
    - log:/log
+  command: "web"
   ports:
    - "8000:8000"
   environment:
