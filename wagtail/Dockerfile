@@ -15,9 +15,9 @@ RUN chown -R uid1000: .
 RUN chmod +x start.sh
 RUN mkdir /log
 RUN chown -R uid1000: /log
-RUN mkdir static
+RUN mkdir -p static
 RUN chown -R uid1000: static
-RUN mkdir media
+RUN mkdir -p media
 RUN chown -R uid1000: media
 
 EXPOSE 8000

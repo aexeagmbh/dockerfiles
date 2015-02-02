@@ -4,10 +4,25 @@ web:
    - db
    - redis
   volumes:
+   - project:/opt/code
    - log:/log
   command: "web"
   ports:
    - "8000:8000"
+  environment:
+      PYTHONUNBUFFERED: 0
+      DJANGO_SETTINGS_MODULE: project.settings.dev
+manage:
+  build: .
+  links:
+   - db
+   - redis
+  volumes:
+   - project:/opt/code
+  entrypoint:
+   - python3
+   - manage.py
+  command: "shell_plus"
   environment:
       PYTHONUNBUFFERED: 0
       DJANGO_SETTINGS_MODULE: project.settings.dev

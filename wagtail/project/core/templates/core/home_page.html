@@ -1,13 +1,105 @@
-{% extends "base.html" %}
+{% extends "core/base.html" %}
+{% load wagtailcore_tags %}
 
-{% load static core_tags %}
+{% block main_content %}
+<section>
+    <div class="row">
+        <div class="large-12 columns">
+            <h2>{{ self.block1_title }}</h2>
+            {{ self.block1_subtitle|richtext }}
 
-{% block body_class %}template-{{ self.get_verbose_name|slugify }}{% endblock %}
+            <ul class="medium-block-grid-2 large-block-grid-2">
+                <li>
+                    {{ self.block1_content1|richtext }}
+                </li>
+                <li>
+                    {{ self.block1_content2|richtext }}
+                </li>
+                <li>
+                    {{ self.block1_content3|richtext }}
+                </li>
+                <li>
+                    {{ self.block1_content4|richtext }}
+                </li>
+            </ul>
 
-{% block content %}
-    <h1>Welcome to your new Wagtail site!</h1>
+            <div class="text-center">
+            {{ self.block1_footer|richtext }}
+            </div>
+        </div>
+    </div>
+</section>
+<section class="alternate">
+    <div class="row">
+        <div class="large-12 columns">
+            <h2>{{ self.block2_title }}</h2>
 
-    <p>You can access the admin interface <a href="{% url 'wagtailadmin_home' %}">here</a> (make sure you have run "./manage.py createsuperuser" in the console first).
+            <ul class="medium-block-grid-2 large-block-grid-2 block-light">
+                <li>
+                    {{ self.block2_content1|richtext }}
+                </li>
+                <li>
+                    {{ self.block2_content2|richtext }}
+                </li>
+                <li>
+                    {{ self.block2_content3|richtext }}
+                </li>
+                <li>
+                    {{ self.block2_content4|richtext }}
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+<section>
 
-    <p>If you haven't already given the documentation a read, head over to <a href="http://wagtail.readthedocs.org/">http://wagtail.readthedocs.org</a> to start building on Wagtail</p>
-{% endblock %}
+    <div class="row">
+        <div class="large-12 columns">
+            <ul class="medium-block-grid-1 large-block-grid-2">
+                <li>
+                    {% image self.block3_thumbnail1 fill-170x170 class="quote-image" %}
+                    <blockquote>
+                        {{ self.block3_content1|richtext }}
+                    </blockquote>
+                </li>
+                <li>
+                    {% image self.block3_thumbnail2 fill-170x170 class="quote-image" %}
+                    <blockquote>
+                        {{ self.block3_content2|richtext }}
+                    </blockquote>
+                </li>
+                <li>
+                    {% image self.block3_thumbnail3 fill-170x170 class="quote-image" %}
+                    <blockquote>
+                        {{ self.block3_content3|richtext }}
+                    </blockquote>
+                </li>
+                <li>
+                    {% image self.block3_thumbnail4 fill-170x170 class="quote-image" %}
+                    <blockquote>
+                        {{ self.block3_content4|richtext }}
+                    </blockquote>
+                </li>
+            </ul>
+        </div>
+    </div>
+</section>
+<section class="action-bar">
+    <div class="row">
+        <div class="large-12 columns">
+            <h3>{{ self.block_signup_title }}</h3>
+            <a class="button bigger" href="https://my.ax-semantics.com/accounts/signup/">{{ self.block_signup_button_label }}</a>
+        </div>
+    </div>
+</section>
+<section>
+    <div class="row">
+        <div class="large-6 medium-6 columns">
+            {{ self.block4_content1|richtext }}
+        </div>
+        <div class="large-6 medium-6 columns">
+            {{ self.block4_content2|richtext }}
+        </div>
+    </div>
+</section>
+{% endblock main_content %}

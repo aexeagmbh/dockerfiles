@@ -1,5 +1,7 @@
 *.pyc
 log
+project/static
+project/media
 .ropeproject
 .DS_Store
 /.venv/
