@@ -1,5 +1,4 @@
-{% load static from staticfiles %}
-{% load wagtailuserbar wagtailcore_tags %}
+{% load static compress wagtailuserbar wagtailcore_tags %}
 
 <!doctype html>
 <html class="no-js" lang="en">
@@ -10,7 +9,9 @@
         <meta name="description" content="{{ self.search_description }}" />
         <title>{% if self.seo_title %}{{ self.seo_title }}{% else %}{{ self.title }}{% endif %}</title>
 
+        {% compress css %}
         <link rel="stylesheet" href="{% static 'css/app.css' %}" />
+        {% endcompress %}
 
         <script>
 document.documentElement.className = document.documentElement.className.replace("no-js", "js");
@@ -135,11 +136,13 @@ WebFontConfig = {
                 </div>
             </footer>
         </div>
-
+        
+        {% compress js %}
         <script src="{% static 'bower_components/jquery/dist/jquery.min.js' %}"></script>
         <script src="{% static 'bower_components/foundation/js/foundation/foundation.js' %}"></script>
         <script src="{% static 'bower_components/foundation/js/foundation/foundation.topbar.js' %}"></script>
         <script src="{% static 'js/app.js' %}"></script>
+        {% endcompress %}
     </body>
 
 </html>
