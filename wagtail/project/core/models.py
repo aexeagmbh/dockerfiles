@@ -181,3 +181,37 @@ TwoColumnMainPage.content_panels = AX_BASE_FIELDS + [
     FieldPanel('conversion_button_label', classname="full"),
     FieldPanel('foot_row', classname="full"),
 ]
+
+
+class ProductPage(Page):
+    header_title = models.CharField(max_length=512, blank=True)
+    header_slogan = models.CharField(max_length=512, blank=True)
+    block1_thumbnail = models.ForeignKey(
+        'wagtailimages.Image',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+'
+    )
+    block1_content = RichTextField()
+    block2_content = RichTextField()
+    block3_content = RichTextField()
+    block4_content = RichTextField()
+    conversion_title = models.CharField(max_length=256, blank=True)
+    conversion_url = models.URLField(blank=True)
+    conversion_button_label = models.CharField(max_length=256, blank=True)
+    foot_row = RichTextField(blank=True)
+
+
+ProductPage.content_panels = AX_BASE_FIELDS + [
+    FieldPanel('title', classname="full title"),
+    FieldPanel('block1_thumbnail', classname="full"),
+    FieldPanel('block1_content', classname="full"),
+    FieldPanel('block2_content', classname="full"),
+    FieldPanel('block3_content', classname="full"),
+    FieldPanel('block4_content', classname="full"),
+    FieldPanel('conversion_title', classname="full"),
+    FieldPanel('conversion_url', classname="full"),
+    FieldPanel('conversion_button_label', classname="full"),
+    FieldPanel('foot_row', classname="full"),
+]
