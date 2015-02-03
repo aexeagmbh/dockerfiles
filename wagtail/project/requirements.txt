@@ -11,3 +11,4 @@ django-redis-cache==0.13.0
 django-celery==3.1.10
 
 raven
+http://pypi.qax.io/axhandle-0.0.1.tar.gz
