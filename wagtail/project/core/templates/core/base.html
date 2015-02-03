@@ -113,15 +113,19 @@ WebFontConfig = {
                         </div>
                     </div>
                 </section>
+                {% block header %}
+                {% if self.header_title %}
                 <section>
                     <div class="row">
                         <div class="large-12 columns intro">
-                            <h1>Let us do the writing for you. Better. Faster. Automatic.</h1>
-                            <p><strong>We help you leverage your full potential by solving your content needs - in a new and unrivaled way.</strong>
-                            </p>
+                            <h1>{{ self.header_title }}</h1>
+                            <p><strong>{{ self.header_slogan }}</strong></p>
                         </div>
                     </div>
                 </section>
+                {% endif %}
+                {% endblock %}
+
             </header>
 
 
