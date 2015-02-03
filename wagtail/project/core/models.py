@@ -8,13 +8,6 @@ from wagtail.wagtailadmin.edit_handlers import FieldPanel, MultiFieldPanel
 from wagtail.wagtailimages.edit_handlers import ImageChooserPanel
 
 
-class AxPage(Page):
-    header_title = models.CharField(max_length=512, blank=True)
-    header_slogan = models.CharField(max_length=512, blank=True)
-
-    class Meta:
-        abstract = True
-
 AX_BASE_FIELDS = [
     MultiFieldPanel(
         [
@@ -25,7 +18,10 @@ AX_BASE_FIELDS = [
 ]
 
 
-class HomePage(AxPage):
+class HomePage(Page):
+    header_title = models.CharField(max_length=512, blank=True)
+    header_slogan = models.CharField(max_length=512, blank=True)
+
     block1_title = models.CharField(max_length=512, blank=True)
     block1_subtitle = RichTextField(blank=True)
     block1_content1 = RichTextField(blank=True)
@@ -133,7 +129,9 @@ HomePage.content_panels = AX_BASE_FIELDS + [
 ]
 
 
-class OneColumnMainPage(AxPage):
+class OneColumnMainPage(Page):
+    header_title = models.CharField(max_length=512, blank=True)
+    header_slogan = models.CharField(max_length=512, blank=True)
     subtitle = RichTextField()
     row1_teaser1 = RichTextField(blank=True)
     row1_teaser2 = RichTextField(blank=True)
@@ -159,7 +157,9 @@ OneColumnMainPage.content_panels = AX_BASE_FIELDS + [
 ]
 
 
-class TwoColumnMainPage(AxPage):
+class TwoColumnMainPage(Page):
+    header_title = models.CharField(max_length=512, blank=True)
+    header_slogan = models.CharField(max_length=512, blank=True)
     subtitle = RichTextField()
     teaser = RichTextField(blank=True)
     main_content_left = RichTextField()
