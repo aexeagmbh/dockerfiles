@@ -144,7 +144,6 @@ class OneColumnMainPage(Page):
 
 OneColumnMainPage.content_panels = AX_BASE_FIELDS + [
     FieldPanel('title', classname="full title"),
-    FieldPanel('subtitle', classname="full"),
     FieldPanel('row1_teaser1', classname="full"),
     FieldPanel('row1_teaser2', classname="full"),
     FieldPanel('row1_teaser3', classname="full"),
@@ -170,7 +169,6 @@ class TwoColumnMainPage(Page):
 
 TwoColumnMainPage.content_panels = AX_BASE_FIELDS + [
     FieldPanel('title', classname="full title"),
-    FieldPanel('subtitle', classname="full"),
     FieldPanel('teaser', classname="full"),
     FieldPanel('main_content_left', classname="full"),
     FieldPanel('main_content_right', classname="full"),
