@@ -2,14 +2,6 @@
 {% load wagtailcore_tags wagtailimages_tags %}
 
 {% block main_content %}
-<section>
-    <div class="row">
-        <div class="large-12 columns">
-            <h2>{{ self.title }}</h2>
-            {{ self.subtitle|richtext }}
-        </div>
-    </div>
-</section>
 {% if self.teaser %}
 <section class="alternate">
     <div class="row">

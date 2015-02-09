@@ -132,7 +132,6 @@ HomePage.content_panels = AX_BASE_FIELDS + [
 class OneColumnMainPage(Page):
     header_title = models.CharField(max_length=512, blank=True)
     header_slogan = models.CharField(max_length=512, blank=True)
-    subtitle = RichTextField()
     row1_teaser1 = RichTextField(blank=True)
     row1_teaser2 = RichTextField(blank=True)
     row1_teaser3 = RichTextField(blank=True)
@@ -160,7 +159,6 @@ OneColumnMainPage.content_panels = AX_BASE_FIELDS + [
 class TwoColumnMainPage(Page):
     header_title = models.CharField(max_length=512, blank=True)
     header_slogan = models.CharField(max_length=512, blank=True)
-    subtitle = RichTextField()
     teaser = RichTextField(blank=True)
     main_content_left = RichTextField()
     main_content_right = RichTextField()
