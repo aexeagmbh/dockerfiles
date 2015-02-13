@@ -11,7 +11,7 @@ web:
    - manage.py
   command: "runserver 0.0.0.0:8000"
   ports:
-   - "8000:8000"
+   - "8123:8000"
   environment:
       PYTHONUNBUFFERED: 0
       DJANGO_SETTINGS_MODULE: project.settings.dev
