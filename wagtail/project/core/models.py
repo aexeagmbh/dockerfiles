@@ -110,6 +110,7 @@ class HomePage(Page):
 
 HOME_BLOCK1_FIELDS = [
     FieldPanel('block1_title', classname="full"),
+    FieldPanel('block1_subline', classname="full"),
     FieldPanel('block1_subtitle', classname="full"),
     FieldPanel('block1_content1', classname="full"),
     FieldPanel('block1_button1_label', classname="full"),
