@@ -13,22 +13,47 @@ AX_BASE_FIELDS = [
         [
             FieldPanel('header_title', classname="full"),
             FieldPanel('header_slogan', classname="full"),
+            FieldPanel('header_img', classname="full"),
         ],
         heading='Header elements', classname="collapsible collapsed"),
+    MultiFieldPanel(
+        [
+            FieldPanel('footer_text', classname="full"),
+        ],
+        heading='Footer elements', classname="collapsible collapsed"),
 ]
 
 
 class HomePage(Page):
     header_title = models.CharField(max_length=512, blank=True)
     header_slogan = models.CharField(max_length=512, blank=True)
+    header_img = models.ForeignKey(
+        'wagtailimages.Image',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+'
+    )
+    footer_text = RichTextField(blank=True)
 
     block1_title = models.CharField(max_length=512, blank=True)
+    block1_subline = models.CharField(max_length=1024, blank=True)
     block1_subtitle = RichTextField(blank=True)
     block1_content1 = RichTextField(blank=True)
+    block1_button1_url = models.URLField(blank=True)
+    block1_button1_label = models.CharField(max_length=512, blank=True)
     block1_content2 = RichTextField(blank=True)
+    block1_button2_url = models.URLField(blank=True)
+    block1_button2_label = models.CharField(max_length=512, blank=True)
     block1_content3 = RichTextField(blank=True)
+    block1_button3_url = models.URLField(blank=True)
+    block1_button3_label = models.CharField(max_length=512, blank=True)
     block1_content4 = RichTextField(blank=True)
-    block1_footer = RichTextField(blank=True)
+    block1_button4_url = models.URLField(blank=True)
+    block1_button4_label = models.CharField(max_length=512, blank=True)
+    block1_conversion_title = models.CharField(max_length=512, blank=True)
+    block1_conversion_url = models.URLField(blank=True)
+    block1_conversion_button_label = models.CharField(max_length=512, blank=True)
 
     block2_title = models.CharField(max_length=512, blank=True)
     block2_content1 = RichTextField(blank=True)
@@ -75,6 +100,9 @@ class HomePage(Page):
     block4_content1 = RichTextField(blank=True)
     block4_content2 = RichTextField(blank=True)
 
+    block5_title = models.CharField(max_length=512, blank=True)
+    block5_content = RichTextField(blank=True)
+
     class Meta:
         description = "The top level homepage for your site"
         verbose_name = "Homepage"
@@ -84,10 +112,20 @@ HOME_BLOCK1_FIELDS = [
     FieldPanel('block1_title', classname="full"),
     FieldPanel('block1_subtitle', classname="full"),
     FieldPanel('block1_content1', classname="full"),
+    FieldPanel('block1_button1_label', classname="full"),
+    FieldPanel('block1_button1_url', classname="full"),
     FieldPanel('block1_content2', classname="full"),
+    FieldPanel('block1_button2_label', classname="full"),
+    FieldPanel('block1_button2_url', classname="full"),
     FieldPanel('block1_content3', classname="full"),
+    FieldPanel('block1_button3_label', classname="full"),
+    FieldPanel('block1_button3_url', classname="full"),
     FieldPanel('block1_content4', classname="full"),
-    FieldPanel('block1_footer', classname="full"),
+    FieldPanel('block1_button4_label', classname="full"),
+    FieldPanel('block1_button4_url', classname="full"),
+    FieldPanel('block1_conversion_title', classname="full"),
+    FieldPanel('block1_conversion_url', classname="full"),
+    FieldPanel('block1_conversion_button_label', classname="full"),
 ]
 
 HOME_BLOCK2_FIELDS = [
@@ -119,6 +157,11 @@ HOME_BLOCK4_FIELDS = [
     FieldPanel('block4_content2', classname="full"),
 ]
 
+HOME_BLOCK5_FIELDS = [
+    FieldPanel('block5_title', classname="full"),
+    FieldPanel('block5_content', classname="full"),
+]
+
 HomePage.content_panels = AX_BASE_FIELDS + [
     FieldPanel('title', classname="full title"),
     MultiFieldPanel(HOME_BLOCK1_FIELDS, heading='Block 1 elements', classname="collapsible collapsed"),
@@ -126,12 +169,22 @@ HomePage.content_panels = AX_BASE_FIELDS + [
     MultiFieldPanel(HOME_BLOCK3_FIELDS, heading='Block 3 elements', classname="collapsible collapsed"),
     MultiFieldPanel(HOME_BLOCK_SIGNUP_FIELDS, heading='Block Sign Up elements', classname="collapsible collapsed"),
     MultiFieldPanel(HOME_BLOCK4_FIELDS, heading='Block 4 elements', classname="collapsible collapsed"),
+    MultiFieldPanel(HOME_BLOCK5_FIELDS, heading='Block 5 elements', classname="collapsible collapsed"),
 ]
 
 
 class OneColumnMainPage(Page):
     header_title = models.CharField(max_length=512, blank=True)
     header_slogan = models.CharField(max_length=512, blank=True)
+    header_img = models.ForeignKey(
+        'wagtailimages.Image',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+'
+    )
+    footer_text = RichTextField(blank=True)
+
     row1_teaser1 = RichTextField(blank=True)
     row1_teaser2 = RichTextField(blank=True)
     row1_teaser3 = RichTextField(blank=True)
@@ -158,6 +211,15 @@ OneColumnMainPage.content_panels = AX_BASE_FIELDS + [
 class TwoColumnMainPage(Page):
     header_title = models.CharField(max_length=512, blank=True)
     header_slogan = models.CharField(max_length=512, blank=True)
+    header_img = models.ForeignKey(
+        'wagtailimages.Image',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+'
+    )
+    footer_text = RichTextField(blank=True)
+
     teaser = RichTextField(blank=True)
     main_content_left = RichTextField()
     main_content_right = RichTextField()
@@ -182,6 +244,15 @@ TwoColumnMainPage.content_panels = AX_BASE_FIELDS + [
 class ProductPage(Page):
     header_title = models.CharField(max_length=512, blank=True)
     header_slogan = models.CharField(max_length=512, blank=True)
+    header_img = models.ForeignKey(
+        'wagtailimages.Image',
+        null=True,
+        blank=True,
+        on_delete=models.SET_NULL,
+        related_name='+'
+    )
+    footer_text = RichTextField(blank=True)
+
     block1_thumbnail = models.ForeignKey(
         'wagtailimages.Image',
         null=True,
