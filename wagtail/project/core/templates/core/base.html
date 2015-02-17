@@ -101,7 +101,11 @@ document.documentElement.className = document.documentElement.className.replace(
                 {% block header %}
                 {% if self.header_title %}
                 <section class="intro">
-                    {% image self.header_img original alt="header img" %}
+                    {% if self.header_img %}
+                    <div class="intro-image">
+                        {% image self.header_img original class="intro image" %}
+                    </div>
+                    {% endif %}
                     <div class="row">
                         <div class="large-12 columns">
                             <h1>{{ self.header_title }}</h1>
