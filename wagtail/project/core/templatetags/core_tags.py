@@ -17,15 +17,16 @@ def has_menu_children(page):
 
 @register.inclusion_tag('core/tags/top_menu.html', takes_context=True)
 def top_menu(context, parent, calling_page=None):
-    menuitems = list(parent.get_children().filter(
+    menuitems = [parent]
+    menuitems.extend(list(parent.get_children().filter(
         live=True,
         show_in_menus=True
-    ))
+    )))
     for menuitem in menuitems:
-        menuitem.show_dropdown = has_menu_children(menuitem)
+        if not menuitem == parent:
+            menuitem.show_dropdown = has_menu_children(menuitem)
         menuitem.active = (False if calling_page is None or isinstance(calling_page, str)
                            else calling_page.url.startswith(menuitem.url))
-    menuitems = [parent] + menuitems
     return {
         'calling_page': calling_page,
         'menuitems': menuitems,
