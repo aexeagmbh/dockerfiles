@@ -13,7 +13,7 @@ AX_BASE_FIELDS = [
         [
             FieldPanel('header_title', classname="full"),
             FieldPanel('header_slogan', classname="full"),
-            FieldPanel('header_img', classname="full"),
+            ImageChooserPanel('header_img'),
         ],
         heading='Header elements', classname="collapsible collapsed"),
     MultiFieldPanel(
@@ -139,13 +139,13 @@ HOME_BLOCK2_FIELDS = [
 
 HOME_BLOCK3_FIELDS = [
     FieldPanel('block3_content1', classname="full"),
-    FieldPanel('block3_thumbnail1', classname="full"),
+    ImageChooserPanel('block3_thumbnail1'),
     FieldPanel('block3_content2', classname="full"),
-    FieldPanel('block3_thumbnail2', classname="full"),
+    ImageChooserPanel('block3_thumbnail2'),
     FieldPanel('block3_content3', classname="full"),
-    FieldPanel('block3_thumbnail3', classname="full"),
+    ImageChooserPanel('block3_thumbnail3'),
     FieldPanel('block3_content4', classname="full"),
-    FieldPanel('block3_thumbnail4', classname="full"),
+    ImageChooserPanel('block3_thumbnail4'),
 ]
 
 HOME_BLOCK_SIGNUP_FIELDS = [
@@ -273,7 +273,7 @@ class ProductPage(Page):
 
 ProductPage.content_panels = AX_BASE_FIELDS + [
     FieldPanel('title', classname="full title"),
-    FieldPanel('block1_thumbnail', classname="full"),
+    ImageChooserPanel('block1_thumbnail'),
     FieldPanel('block1_content', classname="full"),
     FieldPanel('block2_content', classname="full"),
     FieldPanel('block3_content', classname="full"),
