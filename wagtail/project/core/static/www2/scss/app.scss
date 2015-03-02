@@ -41,14 +41,32 @@
 //   "foundation/components/thumbs",
 //   "foundation/components/tooltips",
 "foundation/components/top-bar",
-"foundation/components/type"
+"foundation/components/type",
 //   "foundation/components/offcanvas",
-//   "foundation/components/visibility";
+   "foundation/components/visibility"
 ;
 
 h1, h2, h3, h4, h5, h6 {
 	text-transform: uppercase;
 }
+h2 {
+    font-size: rem-calc(24px);
+    @media #{$medium-up} {
+    	font-size: rem-calc(36);
+    }
+}
+.rich-text {
+	ul {
+		list-style-type: none;
+		margin-left: 0;
+	}
+	li {
+		background: transparent url(../img/chevron-right.svg) no-repeat -8px 0;
+		background-size: auto 24px;
+		padding-left: 1em;
+	}
+}
+
 // table
 table {
 	//border-collapse: collapse;
@@ -64,30 +82,28 @@ table {
 }
 
 
+section {
+	padding-top: 1em;
+	padding-bottom: 1em;
+	margin: 0px auto;
+
+	&.alternate {
+		background-color: $gainsboro;
+	}
+
+	&.colored {
+		background-color: $secondary-color;
+		* {
+			color: white;
+		}
+	}
+}
 
 .container {
 	background-color: $snow;
 	max-width: rem-calc(1600);
 	width: 96%;
 	margin: 0 auto;
-	text-align: center;
-
-	section {
-		padding-top: 2em;
-		padding-bottom: 2em;
-		margin: 0px auto;
-
-		&.alternate {
-			background-color: $gainsboro;
-		}
-
-		&.colored {
-			background-color: $secondary-color;
-			* {
-				color: white;
-			}
-		}
-	}
 }
 
 .action-bar {
@@ -115,12 +131,19 @@ table {
 // 	background-repeat: repeat-x, repeat-x;
 // 	background-position: 0 0, -5px 100%;
 // }
+[class*="block-grid-"] > li {
+	&:last-child {
+		padding-bottom: 0;
+	}
+}
 
 .block-counter {
 
 	counter-reset: li;
 	li {
-		padding: 1em 2em;
+		@media #{$medium-up} {
+			padding: 1em 2em;
+		}
 
 		&:before {
 			background-color: $oil;
@@ -147,18 +170,20 @@ table {
 	padding-top: 1em;
 	padding-bottom: 1em;
 
-	@media #{$medium-up} {
+	@media #{$large-up} {
 		padding-top: 2em;
 		padding-bottom: 2em;
+
+		> section {
+			&:first-child {
+				padding: 0;
+			}
+		}
 	}
 }
 
 [role="banner"] {
-	> section {
-		padding-top: 0;
-		padding-bottom: 0;
 
-	}
 }
 
 [role="contentinfo"] {
@@ -167,12 +192,10 @@ table {
 
 .logo {
 	display: block;
-	font-family: monospace;
 	font-weight: 400;
-
-	// temp
-	color: #76BD1D !important;
-	font-size: 18px;
+	color: $secondary-color;
+	font-size: rem(18px);
+	margin-right: 1em;
 
 	svg {
 		margin-right: -10px;
@@ -181,77 +204,138 @@ table {
 
 .subline {
 	font-size: rem-calc(18);
-	padding: 0.75em 1.5em;
-	display: inline-block;
+	font-weight: bold;
+	display: block;
 	margin: 1em auto;
 	width: auto;
-	max-width: 48em;
+
+	@media #{$large-up} {
+		max-width: 48em;
+		display: inline-block;
+	}
 }
 
 .intro {
-	padding-top: 2em;
-	padding-bottom: 2em;
+	padding-top: 0;
+	padding-bottom: 0;
 	position: relative;
 	overflow: hidden;
-	max-height: rem-calc(200px);
-	text-align: center;
+	//max-height: rem-calc(200px);
+
 
 	@media #{$medium-up} {
-		padding-top: 5em;
-		padding-bottom: 5em;
-		max-height: rem-calc(600px);
-	}
-
-	&:before {
-		content: "";
-		background-color: rgba(0,0,0,0.7);
-
-		position: absolute;
-		top: 0;
-		left: 0;
-		right: 0;
-		bottom: 0;
-
-	}
-
-	> img {
-		//width: 100vw;
-
-		@media #{$row-width} {
-			//transform: translateX(calc((  #{$row-width} - 100vw )/2) );
-		}
+		text-align: center;
 	}
 
 
 	.row {
-		display: flex;
-		position: absolute;
-		top: 0;
-		left: 0;
-		right: 0;
-		bottom: 0;
 
-		> div {
+		@media #{$medium-up} {
+			display: flex;
 
-			flex: 1 0 auto;
-			margin: auto;
+			> div {
+				flex: 1 0 auto;
+				margin: auto;
+				max-width: 64rem;
+			}
+		}
+
+		@media #{$large-up} {
+			padding-top: 2em;
+			padding-bottom: 2em;
+		}
+	}
+
+	.intro-image {
+		display: none;
+
+		@media #{$medium-up} {
+			position: absolute;
+			display: block;
+			width: 100%;
+			height: 100%;
+			top: 0;
+			left: 0;
+			right: 0;
+			bottom: 0;
+
+			&:after {
+				content: "";
+				background-color: rgba(0,0,0,0.6);
+
+				position: absolute;
+				top: 0;
+				left: 0;
+				right: 0;
+				bottom: 0;
+
+			}
+
+			> img {
+				transform: translateY(-50%);
+				width: 100%;
+				height: auto;
+				position: absolute;
+				top: 50%;
+				left: 0;
+			}
+		}
+
+		+ .row {
+			h1 {
+				@media #{$medium-up} {
+					color: $snow;
+				}
+			}
 		}
 	}
 
 	h1 {
-		color: $snow;
 		font-size: rem-calc(36);
 		font-weight: 700;
 		text-transform: uppercase;
+		position: relative;
+		z-index: 5;
 
 		@media #{$medium-up} {
-			font-size: rem-calc(60);
+			font-size: rem-calc(48);
+			margin: 0.5em auto;
+			max-width: 80%;
+		}
+
+		@media #{$large-up} {
+			font-size: rem-calc(56);
 			margin-bottom: 1em;
 		}
 	}
+
+
+
 	.subline {
 		background-color: $secondary-color;
 		color: $snow;
+		font-weight: normal;
+        padding-right: $column-gutter * 1.5;
+        padding-left: $column-gutter * 1.5;
+		position: relative;
+		z-index: 5;
+
+        transform: skewX(-6.5deg);
+        text-align: right;
+        width: 100%;
+        > * {
+          display: inline-block;
+          transform: skewX(6.5deg);
+        }
+
+
+		@media #{$large-up} {
+            transform: skewX(-50deg);
+			margin: 1em;
+          > * {
+            transform: skewX(50deg);
+          }
+		}
 	}
 }
 
@@ -280,15 +364,20 @@ table {
 
 
 .top-bar-section ul.right li {
-	margin-left: 1em;
+		@media #{$large-up} {
+			margin-left: 1em;
 
-	&:first-child {
-		margin-left: 0;
-	}
+			&:first-child {
+				margin-left: 0;
+			}
+		}
 }
 
 .top-bar-section ul li:hover:not(.has-form) > a {
 	background-color: scale-color($primary-color, $lightness: -14%); //$secondary-color;
+}
+.top-bar-section .has-dropdown > a::after {
+	border-top-color: green;
 }
 
 .top-bar .title-area {
@@ -299,12 +388,19 @@ table {
 }
 
 .top-bar .toggle-topbar a {
-	font-family: monospace;
+	font-family: $header-font-family;
+	font-size: rem-calc(21px);
 	font-weight: 400;
+}
+.top-bar-section {
+	 ul.dropdown li > a {
+		text-transform: none;
+	}
 }
 
 button, .button {
 	text-transform: uppercase;
+	background-color: transparent;
 	color: $secondary-color;
 	padding: 0.5rem 2rem;
 	box-shadow: inset 0 0 0 4px $secondary-color;
