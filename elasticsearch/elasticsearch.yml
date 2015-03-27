@@ -1,7 +1,3 @@
-path:
-  data: /data/data
-  logs: /data/log
-  plugins: /opt/elasticsearch/plugins
-  work: /data/work
+path.plugins: /opt/elasticsearch/plugins
 
 http.cors.enabled: true

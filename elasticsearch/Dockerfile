@@ -1,5 +1,5 @@
-FROM dockerfile/elasticsearch
+FROM elasticsearch
 MAINTAINER Aexea Carpentry
 
-ADD elasticsearch.yml /elasticsearch/config/elasticsearch.yml
-RUN /elasticsearch/bin/plugin install elasticsearch/elasticsearch-cloud-aws/2.4.1 > /dev/null 2>&1
+ADD elasticsearch.yml /usr/share/elasticsearch/config/elasticsearch.yml
+RUN plugin install elasticsearch/elasticsearch-cloud-aws/2.4.1
