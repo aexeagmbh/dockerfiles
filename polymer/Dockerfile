@@ -30,11 +30,5 @@ ENV LANG en_US.UTF-8
 ENV LANGUAGE en_US:en
 ENV LC_ALL en_US.UTF-8
 
-RUN useradd uid1000 -d /home/uid1000
-RUN mkdir -p /home/uid1000 && chown uid1000: /home/uid1000
-VOLUME /home/uid1000
-
 RUN mkdir -p /opt/code
-RUN chown uid1000:uid1000 /opt/code
 WORKDIR /opt/code
-USER uid1000
