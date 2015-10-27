@@ -33,7 +33,7 @@ ENV LC_ALL en_US.UTF-8
 RUN mkdir -p /opt/code
 WORKDIR /opt/code
 
-COPY package.json /opt/code
+COPY package.json /opt/code/package.json
 RUN npm install
-COPY bower.json /opt/code
+COPY bower.json /opt/code/bower.json
 RUN bower install
