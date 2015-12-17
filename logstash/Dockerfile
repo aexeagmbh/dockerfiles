@@ -3,13 +3,16 @@ MAINTAINER Aexea Carpentry
 
 # Download version 1.4.2 of logstash
 RUN cd /tmp && \
-    wget https://download.elasticsearch.org/logstash/logstash/logstash-1.4.2.tar.gz && \
-    tar -xzvf ./logstash-1.4.2.tar.gz && \
-    mv ./logstash-1.4.2 /opt/logstash && \
-    rm ./logstash-1.4.2.tar.gz
+    wget https://download.elastic.co/logstash/logstash/logstash-2.1.1.tar.gz && \
+    tar -xzvf ./logstash-2.1.1.tar.gz && \
+    mv ./logstash-2.1.1 /opt/logstash && \
+    rm ./logstash-2.1.1.tar.gz
 
 WORKDIR /opt/logstash
-RUN bin/plugin install contrib
+RUN bin/plugin install logstash-input-udp
+RUN bin/plugin install logstash-input-syslog
+RUN bin/plugin install logstash-filter-json
+RUN bin/plugin install logstash-output-elasticsearch
 RUN bin/plugin install logstash-output-amazon_es
 
 RUN mkdir -p /conf
