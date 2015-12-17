@@ -10,6 +10,7 @@ RUN cd /tmp && \
 
 WORKDIR /opt/logstash
 RUN bin/plugin install contrib
+RUN bin/plugin install logstash-output-amazon_es
 
 RUN mkdir -p /conf
 ADD default.conf /conf/default.conf
