@@ -1,4 +1,4 @@
-FROM elasticsearch
+FROM elasticsearch:1.5
 MAINTAINER Aexea Carpentry
 
 ADD elasticsearch.yml /usr/share/elasticsearch/config/elasticsearch.yml
