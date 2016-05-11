@@ -1,12 +1,12 @@
 FROM java:8-jre
 MAINTAINER Aexea Carpentry
 
-# Download version 1.4.2 of logstash
+# Download version 2.3.2 of logstash
 RUN cd /tmp && \
-    wget https://download.elastic.co/logstash/logstash/logstash-2.3.1.tar.gz && \
-    tar -xzvf ./logstash-2.3.1.tar.gz && \
-    mv ./logstash-2.3.1 /opt/logstash && \
-    rm ./logstash-2.3.1.tar.gz
+    wget https://download.elastic.co/logstash/logstash/logstash-2.3.2.tar.gz && \
+    tar -xzvf ./logstash-2.3.2.tar.gz && \
+    mv ./logstash-2.3.2 /opt/logstash && \
+    rm ./logstash-2.3.2.tar.gz
 
 WORKDIR /opt/logstash
 RUN bin/logstash-plugin install logstash-input-udp
