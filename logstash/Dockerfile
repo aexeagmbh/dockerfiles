@@ -20,4 +20,6 @@ ADD default.conf /conf/default.conf
 
 VOLUME /conf
 
+EXPOSE 5959/UDP
+
 CMD bin/logstash -f /conf
