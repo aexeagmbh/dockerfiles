@@ -1,4 +1,4 @@
-FROM nginx
+FROM nginx:alpine
 MAINTAINER Aexea Carpentry
 
 COPY HQ /usr/share/nginx/html/HQ/

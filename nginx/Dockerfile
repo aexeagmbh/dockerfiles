@@ -1,4 +1,4 @@
-FROM nginx
+FROM nginx:alpine
 MAINTAINER Aexea Carpentry
 
 RUN mkdir -p /etc/nginx/sites-enabled
