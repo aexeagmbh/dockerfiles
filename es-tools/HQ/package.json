@@ -26,6 +26,6 @@
   },
   "license": "Apache License",
   "dependencies": {
-    "moment": "~2.5.0"
+    "moment": "~2.24.0"
   }
 }
